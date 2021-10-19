@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver's Audio Shop | STORE</title>
+    <link rel="stylesheet" href="shop.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <ul class="navCont">
+            <h1 class="navbarLogo">Oliver's Audio Shop</h1>
+            <li  class="cart"><a href="">CART</a><div class="cartmenu"><button class="checkout">Checkout</button><ul class="cartcont"><li>CART</li></ul></div></li>
+            <li><a href="shop.html">SHOP</a></li>
+            <li><a href="index.html">HOME</a></li>
+            
+                
+            </div>
+        </ul>
+    </div>
+    <div class="sectionbg">
+        
+        <div class="filterCont">
+            <input type="text" class="searchbar" placeholder="Search">
+            <div class="filters">
+                
+                <label for="">Catagories</label><br>
+                <input type="checkbox" value="headphone" class="filter headphonefilter"> <label for="">Headphones</label><br>
+                <input type="checkbox" value="speaker" class="filter speakerfilter"> <label for="">Speakers</label><br>
+                <input type="checkbox" value="iems" class="filter iemfilter"> <label for="">IEMs</label><br>
+                <input type="checkbox" value="amp" class="filter ampfilter"> <label for="">Amps</label><br>
+                <input type="checkbox" value="dac" class="filter dacfilter"> <label for="">Dacs</label><br>
+                <label for="">Companies</label><br>
+                <input type="checkbox" value="audeze" class="filter"> <label for="">Audeze</label><br>
+                <input type="checkbox" value="focal" class="filter"> <label for="">Focal</label><br>
+                <input type="checkbox" value="moondrop" class="filter"> <label for="">Moondrop</label><br>
+                <input type="checkbox" value="hifiman" class="filter"> <label for="">HIFIMAN</label><br>
+                <input type="checkbox" value="schitt" class="filter"> <label for="">Schitt</label><br>
+                <input type="checkbox" value="campfire" class="filter"> <label for="">Campfire Audio</label><br>
+                <input type="checkbox" value="kef" class="filter"> <label for="">Kef</label><br>
+                <input type="checkbox" value="other" class="filter"> <label for="">Other</label><br>
+                <button class="applyfilter" >Apply</button>
+                <button class="resetfilter" >Reset</button>
+
+            </div>
+        </div>
+        <div class="aboveItemStorage">
+            <p class="productCount">Products:</p>
+            <select name="Sort" id="sortProducts" onchange="sort()">
+                <option value="popular" selected="selected">Most popular</option>
+                <option value="cheapest">Cheapest first</option>
+                <option value="expensive" >Most expensive first</option>
+                <option value="rating">Highest rates</option>
+            </select>
+
+        </div>
+        <div class="itemStorage">
+    
+
+
+        </div>
+        <h1>OLIVER'S AUDIO SHOP</h1>
+        <h2>SHOP</h2>
+    </div>
+</body>
+    <script>
+        var totalPrice = 0
+
+        const productlist = [
+            {"name" : "LCD 2c", "price" : 800, "image" : "/img/Focalelex.png", "popularity" : 2, "rate" : 4, "catagory" : "headphone", "company" : "audeze"},
+            {"name" : "KEF LS50", "price" : 1599, "image" : "/img/klipsh.jpg", "popularity" : 4, "rate" : 5, "catagory" : "speaker", "company" : "kef"},
+            {"name" : "Sundara", "price" : 350, "image" : "/productimg/sundara.jpg", "popularity" : 8, "rate" : 3, "catagory" : "headphone", "company" : "hifiman"},
+            {"name" : "Focal Elex", "price" : 600, "image" : "/productimg/elex.jpg", "popularity" : 2, "rate" : 4, "catagory" : "headphone", "company" : "focal"},
+            {"name" : "Starfield", "price" : 120, "image" : "/productimg/starfield.jpg", "popularity" : 4, "rate" : 5, "catagory" : "iems", "company" : "moondrop"},
+            {"name" : "KZ ZS10", "price" : 50, "image" : "/productimg/kz.jpg", "popularity" : 8, "rate" : 3, "catagory" : "iems", "company" : "other"},
+            {"name" : "Magni", "price" : 100, "image" : "/productimg/magni.jpg", "popularity" : 10, "rate" : 5, "catagory" : "amp", "company" : "schitt"},
+            {"name" : "Solstice", "price" : 1499, "image" : "/productimg/camp1.jpg", "popularity" : 2, "rate" : 5, "catagory" : "iems", "company" : "campfire"},
+            {"name" : "Mammoth", "price" : 549, "image" : "/productimg/camp2.jpg", "popularity" : 8, "rate" : 5, "catagory" : "iems", "company" : "campfire"},
+            {"name" : "Andromeda", "price" : 1099, "image" : "/productimg/camp3.jpg", "popularity" : 9, "rate" : 5, "catagory" : "iems", "company" : "campfire"},
+            {"name" : "Holocene", "price" : 649, "image" : "/productimg/camp4.jpg", "popularity" : 2, "rate" : 5, "catagory" : "iems", "company" : "campfire"},
+            {"name" : "Focal Clear", "price" : 1000, "image" : "/productimg/clear.jpg", "popularity" : 8, "rate" : 5, "catagory" : "headphone", "company" : "focal"},
+            {"name" : "Focal Radiance", "price" : 1290, "image" : "/productimg/radiance.jpg", "popularity" : 3, "rate" : 5, "catagory" : "headphone", "company" : "focal"},
+            {"name" : "Focal Utpoia", "price" : 4400, "image" : "/productimg/utopia.jpg", "popularity" : 1, "rate" : 5, "catagory" : "headphone", "company" : "focal"},
+            {"name" : "Focal Stellia", "price" : 2990, "image" : "/productimg/stellia.jpg", "popularity" : 2, "rate" : 5, "catagory" : "headphone", "company" : "focal"},
+            {"name" : "Meze Empyrean", "price" : 2990, "image" : "/productimg/emp.png", "popularity" : 6, "rate" : 5, "catagory" : "headphone", "company" : "other"},
+
+
+        ]
+        
+
+        $(document).ready(function(){
+            $(".item").hide()
+            sort()
+            // for (var i = 0; i < productlist.length; i++) { 
+            //     let div = document.createElement("div")
+            //     div.classList.add("item")
+            //     let text = document.createElement("h3")
+            //     text.classList.add("productname")
+            //     let addtocart = document.createElement("button")
+            //     addtocart.classList.add("cartBtn")
+            //     addtocart.innerHTML = "Add to cart"
+            //     text.innerHTML = productlist[i].name + " $" + productlist[i].price
+            //     div.style.backgroundImage = "url('" + productlist[i].image + "')";
+            //     let p = document.querySelector(".itemStorage")
+                
+            //     p.append(div)
+            //     div.append(text)
+            //     div.append(addtocart)
+
+            //     document.querySelector(".productCount").innerHTML = "Products: " + productlist.length
+            //     console.log(productlist[i]); 
+            //     $(".item").hide()
+            // }
+            setTimeout(function () {
+                $(".item").fadeIn(300)
+               // $(".item").fadeIn(500)
+            }, 500);
+            //text = "Oliver's Audio Shop | STORE"
+            (function titleScroller(text) {
+                document.title = text;
+                setTimeout(function () {
+                    titleScroller(text.substr(1) + text.substr(0, 1));
+                }, 500);
+            }(" Oliver's Audio Shop | STORE "));
+
+        });
+        
+        $(".searchbar").on('keyup', function(){
+            var searchlist = []
+            console.log(productlist)
+            var value = $(".searchbar").val()
+            console.log(value)
+            for (var i = 0; i < productlist.length; i++) { 
+                
+
+                value = value.toLowerCase()
+                var name = productlist[i].name.toLocaleLowerCase()
+                var catagory = productlist[i].catagory.toLocaleLowerCase()
+                if(name.includes(value) || catagory.includes(value)){
+                    var product = productlist[i]
+                    console.log("we found " + productlist[i].name)
+                    document.querySelector(".itemStorage").innerHTML = " "
+                    console.log(name)
+                    searchlist.push(productlist[i])
+                    displaysearch(searchlist)
+                    //console.log(searchlist)
+                }
+            }
+        })
+
+
+        var applybtn = document.querySelector(".applyfilter")
+        applybtn.addEventListener("click", filter);
+
+
+        function filter (){
+            var appliedfilters = []
+            var filtersearch = []
+            var filters = document.getElementsByClassName('filter');
+            console.log(filters)
+            for(var i=0; filters[i]; ++i){
+                if(filters[i].checked){
+                    var checkedValue = filters[i].value;
+                    console.log(checkedValue)
+                    appliedfilters.push(checkedValue)
+                    
+                    
+                } else {
+
+                }
+            }
+            for(var i=0; productlist[i]; ++i){
+                if(appliedfilters.includes(productlist[i].catagory) || appliedfilters.includes(productlist[i].company) ){
+                    console.log(productlist[i].name)
+                    document.querySelector(".itemStorage").innerHTML = " "
+
+                    filtersearch.push(productlist[i])
+                    apply(filtersearch)
+                }
+            }
+            
+            
+           
+        }
+        function apply(filtersearch){
+            for (var i = 0; i < filtersearch.length; i++) { 
+
+                        let div = document.createElement("div")
+                        div.classList.add("item")
+                        let text = document.createElement("h3")
+                        text.classList.add("productname")
+                        let addtocart = document.createElement("button")
+                        addtocart.classList.add("cartBtn")
+                        addtocart.innerHTML = "Add to cart"
+                        text.innerHTML = filtersearch[i].name + " $" + filtersearch[i].price
+                        div.style.backgroundImage = "url('" + filtersearch[i].image + "')";
+                        let p = document.querySelector(".itemStorage")
+                        
+                        p.append(div)
+                        div.append(text)
+                        div.append(addtocart)
+
+                        document.querySelector(".productCount").innerHTML = "Products: " + filtersearch.length
+                        console.log(filtersearch[i]); 
+                    }
+        }
+        
+        var resetfilterbtn = document.querySelector(".resetfilter")
+        resetfilterbtn.addEventListener("click", resetfilter);
+
+        function resetfilter(){
+            var filters = document.getElementsByClassName('filter');
+            console.log(filters)
+            for(var i=0; filters[i]; ++i){
+                if(filters[i].checked){
+                    filters[i].checked = false;
+                    
+                    
+                } 
+            }
+            document.querySelector(".itemStorage").innerHTML = " "
+            sort()
+        }
+
+        function displaysearch(searchlist){
+            for (var i = 0; i < searchlist.length; i++) { 
+                        let div = document.createElement("div")
+                        div.classList.add("item")
+                        let text = document.createElement("h3")
+                        text.classList.add("productname")
+                        let addtocart = document.createElement("button")
+                        addtocart.classList.add("cartBtn")
+                        addtocart.innerHTML = "Add to cart"
+                        text.innerHTML = searchlist[i].name + " $" + searchlist[i].price
+                        div.style.backgroundImage = "url('" + searchlist[i].image + "')";
+                        let p = document.querySelector(".itemStorage")
+                        
+                        p.append(div)
+                        div.append(text)
+                        div.append(addtocart)
+
+                        document.querySelector(".productCount").innerHTML = "Products: " + searchlist.length
+                        console.log(searchlist[i]); 
+                    }
+        }
+        $(document).on('click','.deletebtn',function(e){
+            var checkoutitem = e.target.parentElement
+            var checkoutprice = checkoutitem.innerHTML
+            checkoutprice = checkoutprice.replace(/['"]+/g, '')
+            checkoutprice = checkoutprice.replace("<button class=deletebtn>X</button>", "")
+            for (var i = 0; i < productlist.length; i++) { 
+                if(checkoutprice.includes(productlist[i].name)){
+                    console.log(productlist[i].name)
+                    var itemprice = productlist[i].name
+                    checkoutprice = checkoutprice.replace(itemprice, " ")
+                    checkoutprice = checkoutprice.replace("$", " ")
+                    totalPrice -= parseInt(checkoutprice)
+                    console.log(checkoutprice)
+                    document.querySelector(".checkout").innerHTML = "Checkout - $" + totalPrice; 
+                } else{
+                    console.log("nope")
+                }
+                
+            }
+            checkoutitem.remove()
+            console.log(checkoutprice)
+        })
+        $(document).on('click','.cartBtn',function(e){
+            var button = e.target
+            button = button.parentElement
+            button = button.innerHTML
+            button = button.replace(/['"]+/g, '')
+            button = button.replace("<h3 class=productname>", '')
+            button = button.replace("</h3><button class=cartBtn>Add to cart</button>", '')
+            
+            for (var i = 0; i < productlist.length; i++) { 
+                var price = button
+                if(price.includes(productlist[i].name)){
+                    console.log(productlist[i].name)
+                    var itemprice = productlist[i].name
+                    price = price.replace(itemprice, " ")
+                    price = price.replace("$", " ")
+                    totalPrice += parseInt(price)
+                    console.log(price)
+                    document.querySelector(".checkout").innerHTML = "Checkout - $" + totalPrice; 
+                } else{
+                    console.log("nope")
+                }
+                
+            }
+            let cartitem = document.createElement("li")
+            let deletebtn = document.createElement("button")
+            deletebtn.classList.add("deletebtn")
+            deletebtn.innerHTML = "X"
+            cartitem.innerHTML = button
+            //console.log(button)
+            var cart = document.querySelector(".cartcont")
+            cartitem.append(deletebtn)
+            cart.append(cartitem)
+        })
+
+
+
+        function byPrice (a, b){
+            var cheapest = parseInt(a.price) - parseInt(b.price)
+            return cheapest
+            console.log(cheapest)
+        }
+        function byPriceExpensive(a, b){
+            var expensive = parseInt(b.price) - parseInt(a.price)
+            return expensive
+        }
+        function byrate(a, b){
+            var expensive = parseInt(b.rate) - parseInt(a.rate)
+            return expensive
+        }
+        function bypopular(a, b){
+            var expensive = parseInt(b.popularity) - parseInt(a.popularity)
+            return expensive
+        }
+
+        function sort(){
+            var e = document.getElementById("sortProducts")
+            var selectedValue = e.options[e.selectedIndex].value;
+            console.log(selectedValue)
+            if(selectedValue == "cheapest"){
+                cheapest()
+                console.log("cheap")
+
+            }
+            if(selectedValue == "expensive"){
+                expensive()
+                console.log("expensive")
+            }
+            if(selectedValue == "rating"){
+                rate()
+                console.log("rate")
+            }
+            if(selectedValue == "popular"){
+                popular()
+                console.log("popular")
+            }
+            function cheapest(){
+                    document.querySelector(".itemStorage").innerHTML = " "
+                    var filteredList = productlist.sort(byPrice)
+                    console.log(filteredList)
+                    console.log(document.getElementById("sortProducts").value)
+
+                    for (var i = 0; i < filteredList.length; i++) { 
+                        let div = document.createElement("div")
+                        div.classList.add("item")
+                        let text = document.createElement("h3")
+                        text.classList.add("productname")
+                        let addtocart = document.createElement("button")
+                        addtocart.classList.add("cartBtn")
+                        addtocart.innerHTML = "Add to cart"
+                        text.innerHTML = filteredList[i].name + " $" + filteredList[i].price
+                        div.style.backgroundImage = "url('" + filteredList[i].image + "')";
+                        let p = document.querySelector(".itemStorage")
+                        
+                        p.append(div)
+                        div.append(text)
+                        div.append(addtocart)
+
+                        document.querySelector(".productCount").innerHTML = "Products: " + filteredList.length
+                        console.log(filteredList[i]); 
+                    }
+            }
+            function expensive(){
+                    document.querySelector(".itemStorage").innerHTML = " "
+                    var filteredList = productlist.sort(byPriceExpensive)
+                    console.log(filteredList)
+                    console.log(document.getElementById("sortProducts").value)
+
+                    for (var i = 0; i < filteredList.length; i++) { 
+                        let div = document.createElement("div")
+                        div.classList.add("item")
+                        let text = document.createElement("h3")
+                        text.classList.add("productname")
+                        let addtocart = document.createElement("button")
+                        addtocart.classList.add("cartBtn")
+                        addtocart.innerHTML = "Add to cart"
+                        text.innerHTML = filteredList[i].name + " $" + filteredList[i].price
+                        div.style.backgroundImage = "url('" + filteredList[i].image + "')";
+                        let p = document.querySelector(".itemStorage")
+                        
+                        p.append(div)
+                        div.append(text)
+                        div.append(addtocart)
+
+                        document.querySelector(".productCount").innerHTML = "Products: " + filteredList.length
+                        console.log(filteredList[i]); 
+                    }
+            }
+            function rate(){
+                    document.querySelector(".itemStorage").innerHTML = " "
+                    var filteredList = productlist.sort(byrate)
+                    console.log(filteredList)
+                    console.log(document.getElementById("sortProducts").value)
+
+                    for (var i = 0; i < filteredList.length; i++) { 
+                        let div = document.createElement("div")
+                        div.classList.add("item")
+                        let text = document.createElement("h3")
+                        text.classList.add("productname")
+                        let addtocart = document.createElement("button")
+                        addtocart.classList.add("cartBtn")
+                        addtocart.innerHTML = "Add to cart"
+                        text.innerHTML = filteredList[i].name + " $" + filteredList[i].price
+                        div.style.backgroundImage = "url('" + filteredList[i].image + "')";
+                        let p = document.querySelector(".itemStorage")
+                        
+                        p.append(div)
+                        div.append(text)
+                        div.append(addtocart)
+                        document.querySelector(".productCount").innerHTML = "Products: " + filteredList.length
+                        console.log(filteredList[i]); 
+                    }
+            }
+            function popular(){
+                    document.querySelector(".itemStorage").innerHTML = " "
+                    var filteredList = productlist.sort(bypopular)
+                    console.log(filteredList)
+                    console.log(document.getElementById("sortProducts").value)
+
+                    for (var i = 0; i < filteredList.length; i++) { 
+                        let div = document.createElement("div")
+                        div.classList.add("item")
+                        let text = document.createElement("h3")
+                        text.classList.add("productname")
+                        let addtocart = document.createElement("button")
+                        addtocart.classList.add("cartBtn")
+                        addtocart.innerHTML = "Add to cart"
+                        text.innerHTML = filteredList[i].name + " $" + filteredList[i].price
+                        div.style.backgroundImage = "url('" + filteredList[i].image + "')";
+                        let p = document.querySelector(".itemStorage")
+                        
+                        p.append(div)
+                        div.append(text)
+                        div.append(addtocart)
+                        document.querySelector(".productCount").innerHTML = "Products: " + filteredList.length
+                        console.log(filteredList[i]); 
+                    }
+            }
+
+            // if($("#sortProducts").value = "expensive"){
+            //         document.querySelector(".itemStorage").innerHTML = " "
+            //         var filteredList = productlist.sort(byPriceExpensive)
+            //         console.log(filteredList)
+            //         console.log(document.getElementById("sortProducts").value)
+
+            //         for (var i = 0; i < filteredList.length; i++) { 
+            //             let div = document.createElement("div")
+            //             div.classList.add("item")
+            //             let text = document.createElement("h3")
+            //             text.classList.add("productname")
+            //             text.innerHTML = filteredList[i].name + " $" + filteredList[i].price
+            //             div.style.backgroundImage = "url('" + filteredList[i].image + "')";
+            //             let p = document.querySelector(".itemStorage")
+                        
+            //             p.append(div)
+            //             div.append(text)
+            //             document.querySelector(".productCount").innerHTML = "Products: " + filteredList.length
+            //             console.log(filteredList[i]); 
+            //         }
+            // }
+            
+            
+        }
+        
+        
+    </script>
+</html>

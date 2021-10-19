@@ -1,0 +1,799 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #080a09;
+    margin: 0;
+    padding: 0;
+    height: 300vh;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0.8em;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #060D0D;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #F9F2F2;
+    border-radius: 10px;
+}
+
+.navbar {
+    background-color: #060D0D;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    -webkit-box-shadow: 0px 13px 50px -17px #00000080;
+    box-shadow: 0px 13px 50px -17px #00000080;
+    z-index: 20;
+}
+
+.navCont {
+    float: right;
+    margin-right: 20%;
+    margin-top: 25px;
+}
+
+.navCont li {
+    color: #F9F2F2;
+    list-style-type: none;
+    display: inline;
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    margin-left: 50px;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: 0.1s;
+    padding-bottom: 30px;
+}
+
+.navCont a {
+    text-decoration: none;
+    color: #F9F2F2;
+
+}
+
+.navCont li:hover {
+    border-bottom: 2px solid #F9F2F2;
+}
+
+.logo {
+    position: absolute;
+    display: inline;
+    color: #F9F2F2;
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin-left: 20%;
+    margin-top: 0.7%;
+    z-index: 2;
+    cursor: pointer;
+
+}
+
+.section1 {
+    width: 100%;
+    background-color: #060D0D;
+    height: 100vh;
+    -webkit-box-shadow: 0px 500px 500px 500px #060D0D;
+    box-shadow: 0px 500px 500px 500px #060D0D;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 600px;
+    z-index: 1;
+    position: relative;
+}
+
+.headphoneIMG {
+    margin-top: 250px;
+    position: absolute;
+    margin-left: 580px;
+    height: 60%;
+    z-index: 1;
+    transition: 0.4s;
+}
+
+
+
+.section1 span {
+    font-size: 9rem;
+
+
+}
+
+.explorebtn {
+    position: absolute;
+    background-color: #F9F2F2;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    border: none;
+    color: black;
+    font-family: 'Crimson Text', serif;
+    font-size: 3rem;
+    margin-left: -30px;
+    letter-spacing: 10px;
+    margin-top: 50%;
+    transition: 0.4s;
+}
+
+.explorebtn:hover {
+    letter-spacing: 20px;
+    margin-left: 50px;
+    transform: translateX(-30px);
+    opacity: 1;
+}
+
+.firstproduct {
+    margin-left: -300px;
+    margin-top: 300px;
+    position: absolute;
+    color: #161616;
+    font-size: 5rem;
+    font-family: monospace;
+    font-weight: 100;
+    padding-top: 10px;
+    background: rgb(202, 202, 202);
+    background-image: linear-gradient(109.6deg, rgb(207, 207, 207)2.4%, rgb(56, 56, 56) 98.8%);
+
+    box-shadow: 0px 50px 90px 90px #00000063;
+    width: 35%;
+    height: 40%;
+    font-family: 'Cinzel', serif;
+    transition: 0.4s;
+}
+
+.firstproduct:hover {
+    box-shadow: 0px 70px 90px 90px #00000063;
+    transform: translateY(-10px);
+
+}
+
+.firstproduct:hover~.headphoneIMG {
+    opacity: 0;
+
+}
+
+
+.headphoneIMG:hover {
+    transform: translateY(-10px);
+    transform: translatex(10px);
+
+}
+
+.firstproduct h1 {
+    margin-top: -150px;
+    margin-left: 10%;
+}
+
+.firstproduct h2 {
+    margin-top: 0px;
+    margin-left: 10%;
+}
+
+.firstproducttext {
+    margin-top: 7%;
+}
+
+.fa-angle-down {
+    margin-top: 80vh;
+    color: #F9F2F2;
+    transition: 0.4s;
+    position: absolute;
+    text-align: center;
+}
+
+.fa-angle-down:hover {
+    transform: translateY(30px);
+}
+
+.section2 {
+    padding-top: 150px;
+    overflow-y: hidden;
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 100%;
+    z-index: 0;
+    background-color: black;
+    overflow-y: scroll;
+}
+
+.welcome h1 {
+    margin-top: 300px;
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    color: #F9F2F2;
+}
+
+.welcome {
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    margin-bottom: -40%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome p {
+    position: absolute;
+    margin-top: 470px;
+    color: #F9F2F2;
+    font-family: serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.welcomeMSG {
+    text-align: center;
+    width: 65%;
+}
+
+.welcomeP1 {
+    position: absolute;
+    margin-top: 510px;
+    color: #F9F2F2;
+    font-family: serif;
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+
+.section2bg {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+}
+
+.exampleproducts {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.exampleproducts1 {
+    height: 500px;
+    margin-top: 25%;
+    position: absolute;
+
+}
+
+
+
+.exampleproducts2 {
+    height: 600px;
+    margin-top: 25%;
+    margin-left: 60%;
+    position: absolute;
+
+}
+
+.exampleproducts3 {
+    height: 600px;
+    margin-top: 25%;
+    margin-left: -60%;
+    position: absolute;
+
+}
+
+.section3 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-top: 59%;
+    background: rgb(8, 10, 9);
+    background: linear-gradient(180deg, rgba(8, 10, 9, 1) 0%, rgb(1, 9, 15) 100%);
+    overflow-y: scroll;
+    margin-bottom: 0;
+}
+
+input {
+    background-color: #F9F2F2;
+    color: #060D0D;
+    font-family: serif;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(92, 92, 92);
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-family: serif;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #F9F2F2;
+    color: rgb(8, 8, 8);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .2s;
+    font-family: 'Cinzel', serif;
+
+}
+
+input[type=submit]:hover {
+    background-color: #beb9b9;
+}
+
+.contactform {
+    background-color: #060D0D;
+    padding: 20px;
+    height: min-content;
+    margin-top: 300px;
+    width: 40%;
+    -webkit-box-shadow: 0px 10px 50px 5px #000000;
+    box-shadow: 0px 10px 50px 5px #000000;
+    font-family: serif;
+}
+
+.contactform label {
+    font-size: 2rem;
+    color: #F9F2F2;
+}
+
+.section3 h1 {
+    font-size: 6rem;
+    position: absolute;
+    font-family: 'Cinzel', serif;
+    margin-top: 100px;
+    color: #F9F2F2;
+}
+
+@media only screen and (max-width: 2100px) {
+    .exampleproducts {
+        margin-top: 6%;
+    }
+}
+
+@media only screen and (max-width: 1850px) {
+    .section3 {
+        margin-top: 70%;
+    }
+
+    .exampleproducts2 {
+        display: none;
+        opacity: 0;
+
+    }
+
+    .exampleproducts3 {
+        display: none;
+        opacity: 0;
+
+    }
+
+    .exampleproducts {
+        margin-top: 10%;
+    }
+
+    .logo {
+        margin-left: 1%;
+    }
+
+    .navCont {
+        margin-right: 2%;
+    }
+
+    .explorebtn {
+        position: absolute;
+        background-color: #F9F2F2;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border: none;
+        color: black;
+        font-family: 'Crimson Text', serif;
+        font-size: 4rem;
+        letter-spacing: 5px;
+        margin-top: 60%;
+        z-index: 10;
+        transition: 0.4s;
+        margin-left: 6%;
+    }
+
+    .firstproduct {
+        margin-left: -300px;
+        margin-top: 300px;
+        position: absolute;
+        color: #161616;
+        font-size: 4rem;
+        font-family: monospace;
+        font-weight: 100;
+        padding-top: -80px;
+        background: rgb(202, 202, 202);
+        background-image: linear-gradient(109.6deg, rgb(207, 207, 207)2.4%, rgb(56, 56, 56) 98.8%);
+
+        box-shadow: 0px 50px 90px 90px #00000063;
+        width: 35%;
+        height: 30%;
+        font-family: 'Cinzel', serif;
+        transition: 0.4s;
+    }
+
+    .firstproducttext {
+        margin-top: 10%;
+    }
+
+    .firstproduct h1 {
+        font-size: 7rem;
+        margin-top: -80px;
+        margin-left: 10%;
+    }
+
+    .firstproduct h2 {
+        font-size: 4rem;
+        margin-left: 10%;
+    }
+
+    .headphoneIMG {
+        margin-top: 250px;
+        position: absolute;
+        margin-left: 280px;
+        height: 50%;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .headphoneIMG {
+
+        height: 40%;
+    }
+
+    .logo {
+        margin-left: 4%;
+    }
+
+    .navCont {
+        margin-right: 3%;
+    }
+
+    .exampleproducts {
+        margin-top: 15%;
+    }
+
+    .exampleproducts1 {
+        height: 400px;
+
+    }
+
+    .welcome h1 {
+        margin-top: 300px;
+        font-family: 'Cinzel', serif;
+        font-size: 4rem;
+        color: #F9F2F2;
+    }
+
+    .welcomeP1 {
+        position: absolute;
+        margin-top: 510px;
+        color: #F9F2F2;
+        font-family: serif;
+        font-size: 2.5rem;
+        font-weight: 100;
+    }
+
+    .section3 {
+        margin-top: 110%;
+    }
+}
+
+@media only screen and (max-width: 1125px) {
+    .headphoneIMG {
+
+        height: 30%;
+    }
+
+    .section3 {
+        margin-top: 150%;
+    }
+
+    .welcome h1 {
+        margin-top: 200px;
+        font-family: 'Cinzel', serif;
+        font-size: 5rem;
+        color: #F9F2F2;
+    }
+
+    .exampleproducts {
+        margin-top: 40%;
+    }
+
+    .navCont li {
+        color: #F9F2F2;
+        list-style-type: none;
+        display: inline;
+        font-family: 'Crimson Text', serif;
+        font-size: 2rem;
+        margin-left: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: 0.1s;
+        padding-bottom: 30px;
+    }
+
+    .navCont {
+        margin-right: 1%;
+    }
+
+    .explorebtn {
+        position: absolute;
+        background-color: #F9F2F2;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border: none;
+        color: black;
+        font-family: 'Crimson Text', serif;
+        font-size: 3rem;
+        letter-spacing: 5px;
+        margin-top: 100%;
+        z-index: 10;
+        transition: 0.4s;
+        margin-left: 6%;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .navCont {
+        font-size: 1.5rem;
+        margin-right: 7%;
+    }
+
+
+}
+
+@media only screen and (max-width: 940px) {
+    .navbarLogo {
+        display: none;
+        font-size: 1rem;
+    }
+
+    .welcome h1 {
+        margin-top: 300px;
+        font-family: 'Cinzel', serif;
+        font-size: 4rem;
+        color: #F9F2F2;
+    }
+
+    .exampleproducts1 {
+        height: 400px;
+        margin-top: 50%;
+        position: absolute;
+
+    }
+
+    .exampleproducts {
+        margin-top: 40%;
+    }
+
+    .logo {
+        margin-left: 15%;
+        margin-top: 2%;
+    }
+
+    .navCont {
+        margin-top: 100px;
+        margin-right: 22%;
+    }
+
+    .navbar {
+        height: 180px;
+    }
+
+    .navCont li {
+        color: #F9F2F2;
+        list-style-type: none;
+        display: inline;
+        font-family: 'Crimson Text', serif;
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 30px;
+        cursor: pointer;
+        transition: 0.1s;
+        padding-bottom: 0;
+    }
+
+    .firstproduct {
+        margin-left: 0;
+        margin-top: 300px;
+        position: absolute;
+        color: #161616;
+        font-size: 4rem;
+        font-family: monospace;
+        font-weight: 100;
+        padding-top: -80px;
+        background: rgb(202, 202, 202);
+        background-image: linear-gradient(109.6deg, rgb(207, 207, 207)2.4%, rgb(56, 56, 56) 98.8%);
+
+        box-shadow: 0px 50px 90px 90px #00000063;
+        width: 80%;
+        height: 30%;
+        font-family: 'Cinzel', serif;
+        transition: 0.4s;
+    }
+
+    .explorebtn {
+        position: absolute;
+        background-color: #F9F2F2;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border: none;
+        color: black;
+        font-family: 'Crimson Text', serif;
+        font-size: 3rem;
+        letter-spacing: 5px;
+        margin-top: 60%;
+        z-index: 10;
+        transition: 0.4s;
+        margin-left: 6%;
+    }
+}
+
+@media only screen and (max-height: 812px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        margin-left: 0;
+    }
+
+
+
+    .firstproducttext {
+        margin-top: 7%;
+    }
+
+    .firstproduct h1 {
+        font-size: 4rem;
+        margin-top: -30px;
+    }
+
+    .firstproduct h2 {
+        margin-top: -40px;
+
+        font-size: 2rem;
+    }
+
+    .navCont li {
+        color: #F9F2F2;
+        list-style-type: none;
+        display: inline;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.25rem;
+        margin-left: 0;
+        margin-right: 0px;
+        cursor: pointer;
+        transition: 0.1s;
+        padding-bottom: 0;
+    }
+
+    .navbar {
+        height: 100px;
+    }
+
+    .navCont {
+        margin-right: 35%;
+        margin-top: 50px;
+        display: inline;
+        height: 30px;
+
+    }
+
+    .logo {
+        margin-left: 20px;
+        font-size: 1.8rem;
+    }
+
+    .headphoneIMG {
+        margin-top: 150px;
+        margin-left: 0;
+
+    }
+
+    .firstproduct {
+        margin-left: -0;
+        margin-top: 400px;
+        position: absolute;
+        color: #161616;
+        font-size: 1rem;
+        font-family: monospace;
+        font-weight: 100;
+        padding-top: 30px;
+        background: rgb(202, 202, 202);
+        background-image: linear-gradient(109.6deg, rgb(207, 207, 207)2.4%, rgb(56, 56, 56) 98.8%);
+
+        width: 90%;
+        height: 175px;
+    }
+
+    .explorebtn {
+        position: absolute;
+        background-color: #F9F2F2;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border: none;
+        color: black;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5rem;
+        letter-spacing: 5px;
+        margin-top: 30%;
+        z-index: 10;
+        transition: 0.4s;
+        margin-left: 6%;
+    }
+
+    .fa-angle-down {
+        margin-top: 85vh;
+        margin-left: -5%;
+        color: #F9F2F2;
+        transition: 0.4s;
+        position: absolute;
+        text-align: center;
+        font-size: 60px;
+    }
+
+    .section1 {
+        width: 100%;
+        background-color: #060D0D;
+        height: 100vh;
+        -webkit-box-shadow: 0px 500px 500px 500px #060d0d00;
+        box-shadow: 0px 500px 500px 500px #060d0d00;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+        z-index: 7;
+        position: relative;
+    }
+
+    .section2bg {
+        height: 812px;
+    }
+
+    body::-webkit-scrollbar {
+        width: 0em;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: #12b4b4;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #F9F2F2;
+        border-radius: 10px;
+    }
+
+
+}
